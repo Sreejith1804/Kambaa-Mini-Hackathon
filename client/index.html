@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Meeting Summarizer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+  <style>
+.demo-instructions.compact {
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #fff;
+  position: relative;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.copyBtn:hover {
+  background-color: #2980b9;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-top: 1.5rem;
+}
+</style>
+
+</head>
+<body>
+ <div class="container">
+
+    <!-- Welcome + Logout (handled by JS) -->
+    
+    <h1>🤖 AI Meeting Summarizer</h1>
+
+    <!-- Demo Instructions -->
+    <div class="demo-instructions compact">
+
+      <div style="position: relative; margin-bottom: 0.75rem;">
+        <button class="copyBtn" data-target="demo1">Copy Simple</button>
+        <pre id="demo1">
+Meeting Date: 05-09-2025
+Attendees: Alice, Bob
+
+1. Discussed new dashboard design.
+2. Alice will create mockups by Monday.
+3. Bob will review budget for extra features.
+4. Next meeting on Friday.
+        </pre>
+      </div>
+
+      <div style="position: relative; margin-bottom: 0.75rem;">
+        <button class="copyBtn" data-target="demo2">Copy Complex</button>
+        <pre id="demo2">
+Meeting Date: 03-09-2025
+Attendees: Alice, Bob, Charlie, Diana, Emily, Frank
+
+1. Campaign Ideas:
+   - Alice: influencer marketing on Instagram & TikTok.
+   - Bob: referral program for existing customers.
+   - Charlie: interactive quiz for engagement.
+
+2. Budget Allocation:
+   - Alice: $8,000
+   - Bob: $7,000
+   - Charlie: $5,000
+   - Diana: $5,000
+
+3. Deadlines:
+   - Emily: Review content by 10-09-2025.
+   - Frank: Set up analytics by 12-09-2025.
+
+4. Risks:
+   - Influencer contracts delay → have backup list.
+   - Referral program adoption low → launch email boost.
+        </pre>
+      </div>
+
+      <div style="position: relative; margin-bottom: 0.75rem;">
+        <button class="copyBtn" data-target="demo3">Copy Edge Case</button>
+        <pre id="demo3">
+Meeting Date: 08-09-2025
+Attendees:
+
+1.
+2.
+3.
+        </pre>
+      </div>
+
+      <p>Click a "Copy" button above to copy that demo transcript to your clipboard.</p>
+    </div>
+
+    <!-- Input Area -->
+    <textarea id="transcript" placeholder="Paste your meeting transcript here..."></textarea>
+    <button id="sendBtn">Process Transcript</button>
+
+    <!-- Loading -->
+    <div id="loading" class="hidden">Processing...</div>
+
+    <!-- Output -->
+    <div id="output" class="hidden">
+      <div class="card summary-card">
+        <h2>Summary</h2>
+        <p id="summary"></p>
+      </div>
+
+      <div class="card action-card">
+        <h2>Action Items</h2>
+        <ul id="actionItems"></ul>
+      </div>
+
+      <div class="card task-card">
+        <h2>Task Assignments</h2>
+        <ul id="taskAssignments"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Copy demo transcript to clipboard
+    const copyButtons = document.querySelectorAll('.copyBtn');
+
+    copyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const demoText = document.getElementById(targetId).textContent.trim();
+
+        navigator.clipboard.writeText(demoText)
+          .then(() => alert('Demo transcript copied!'))
+          .catch(err => console.error('Copy failed', err));
+      });
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Main Container */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Welcome + Logout */
+#welcomeContainer {
+  display: flex;
+  justify-content: space-between; /* welcome text left, logout button right */
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#welcomeContainer span {
+  font-weight: bold;
+}
+
+#welcomeContainer button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s, background 0.3s;
+  flex-shrink: 0;
+  margin: 0; /* prevent auto-centering */
+}
+
+#welcomeContainer button:hover {
+  transform: translateY(-2px);
+  background-color: #c0392b;
+}
+
+/* Input Area */
+textarea {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  outline: none;
+  transition: 0.3s;
+}
+
+textarea:focus {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* General Buttons */
+button {
+  background: #ff6b6b;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 1rem auto;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: #ee5253;
+  transform: translateY(-2px);
+}
+
+/* Loading Animation */
+#loading {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#loading {
+  display: none !important; /* spinner never shows */
+}
+
+#loading::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear 10; /* spins 10 times then stops */
+}
+
+/* Compact Demo Instructions */
+    .demo-instructions.compact {
+      max-height: 180px;           /* limit vertical space */
+      overflow-y: auto;            /* scrollable if content exceeds height */
+      background: rgba(255,255,255,0.1);
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.3;
+      color: #fff;                 /* matches theme */
+    }
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.card h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Login page styling */
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.login-form button:hover {
+  background-color: #2980b9;
+}
+
+#logoutContainer {
+  display: none; /* hides the duplicate logout button */
+}

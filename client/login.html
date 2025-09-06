@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AI Meeting Summarizer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sample Credentials Badge */
+    .sample-credentials {
+      background: rgba(52, 152, 219, 0.3); /* more opaque for visibility */
+      padding: 12px 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #fff;
+      text-align: left;
+      line-height: 1.4;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .sample-credentials strong {
+      color: #fff; /* label white */
+    }
+
+    /* Login page adjustments */
+    .login-container {
+      background: rgba(0, 0, 0, 0.5); /* darker semi-transparent for better contrast */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .login-container h1 {
+      color: #fff;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .login-container h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-form label {
+      color: #fff;
+    }
+
+    .login-form input {
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+    }
+
+    #errorMsg {
+      color: #ff6b6b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container login-container">
+    <h1>🤖 AI Meeting Summarizer</h1>
+    <h2>Login</h2>
+
+    <div class="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter username">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password">
+
+      <div id="errorMsg"></div>
+
+      <button id="loginBtn">Login</button>
+    </div>
+
+    <div class="sample-credentials">
+      <p style="margin:0;">Sample credentials for testing:</p>
+      <p style="margin:0;"><strong>Username:</strong> sree</p>
+      <p style="margin:0;"><strong>Password:</strong> password123</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
